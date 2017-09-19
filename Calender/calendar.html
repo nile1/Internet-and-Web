@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events Calender.</title>
+	<title> CSS Properties.</title>
+	<style>
+		th, td {
+ 		   padding: 10px;
+    	   text-align: left;
+		}
+		tr:hover {
+			background-color: #ffffff;
+		}
+		th {
+		    background-color:red;
+    		color: black;
+		}
+	</style>
+</head>
+<body style="background-color: pink;">
+	
+	<center>
+		<select id="selection" onclick="displayTable();">
+			<option></option>
+			<option value="A">User A</option>
+  			<option value="B">User B</option>
+  			<option value="C">User C</option>
+  			<option value="D">User D</option>
+  			<option value="E">User E</option>
+		</select>
+	
+	<br><br>
+	<table>
+		<tr>
+			<th>Monday</th>
+			<th>Tuesday</th>
+			<th>Wednesday</th>
+			<th>Thursday</th>
+			<th>Friday</th>
+		</tr>
+	</table>
+
+	<div id="display"></div>
+	
+	</center>
+
+<script>
+	function displayTable(){
+		var user = document.getElementById("selection");
+		var userVal = user.options[user.selectedIndex].value;
+		var userTxt = user.options[user.selectedIndex].text;
+		document.getElementById("display").innerHTML = "<p>"+userTxt+"</p>";
+	}
+</script>
+
+</body>
+</html>
