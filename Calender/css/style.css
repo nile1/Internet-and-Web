@@ -1,0 +1,49 @@
+body{
+	margin: 10vh auto;
+	background: White;
+}
+
+.left{
+	float: left;
+}
+
+.user-dropdown{
+	margin-left: 5vh;
+	margin-top: 1vh;
+}
+
+.cust-container{
+	width: 90vw;
+	margin: 0 auto;
+}
+
+.calendar{
+	margin-top: 5vh;
+	border:  1px solid blue;
+	background: White;
+}
+
+.event:nth-child(2){
+	margin-top: 30px;
+}
+
+.day{
+	border:  1px solid green;
+}
+
+.day-header{
+	padding: 10px 30px;
+	border:  1px solid grey;
+	color: Black;
+	background: White;
+	text-align: center;
+}
+
+.event{
+	margin: 20px auto;
+	padding: 1vw 2vw;
+	background: Pink;
+	text-align: center;
+	color: blue;
+	border-radius: 25px;
+}
