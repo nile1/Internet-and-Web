@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Movie Junction</title>
+
+  <!-- Bootstrap, Icons, Custom CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" >
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+ 
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+ <!-- Navigation -->
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Movie Junction</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="reset_book_input();" data-toggle="modal" data-target=".bd-addCategory-modal-lg">Add Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target=".bd-example-modal-lg">Cart (<span id="numMovies">0</span>) <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Checkout modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Checkout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+            <div class="row">
+              <div class="col">
+                <label><strong>Movie Name</strong></label>    
+              </div>
+              <div class="col">
+                <label><strong>Director</strong></label>    
+              </div>
+              <div class="col">
+                <label><strong>Price</strong></label>    
+              </div>
+            </div>
+            <hr>
+            <div id="books"></div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <label><strong></strong></label>    
+              </div>
+              <div class="col">
+                <label><strong>Total Bill:</strong></label>    
+              </div>
+              <div class="col">
+                <label><strong>&#8377; <span id="totalbill"></span></strong></label>    
+              </div>
+            </div>
+
+
+
+            
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Pay Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add new category modal -->
+<div class="modal fade bd-addCategory-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Add New Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body new_category">
+        <div class="container">
+          <form>
+              <div class="form-group">
+                <label for="new_category_name" class="form-control-label">Category Name</label>
+                <input type="text" class="form-control" id="new_category_name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="form-control-label">Movie Names:</label>
+                <div id="new_books_add">
+                  <input type="text" class="form-control" id="category-name">
+                </div>
+                <button type="button" class="btn btn-danger rounded-circle" onclick="add_book_inputs();" data-toggle="popover" data-trigger="hover" data-placement="right"  data-html="true" data-content="Click to add more movie names!" style="float:right; margin-top:2em; box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+              </div>
+            </form>
+          </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="add_category();">Add new category!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4">
+ 
+</header>
+
+
+<!-- Page Content -->
+<div class="container">
+  <ul class="nav nav-tabs nav-fill nav-justified" id="category-tab" role ="tablist">
+    <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#ScienceFiction"><strong>Sci-Fi</strong></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Thriller"><strong>Drama/Thriller</strong></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Action"><strong>Action</strong></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Romance"><strong>Romance</strong></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Horror"><strong>Horror</strong></a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div id="ScienceFiction" class="tab-pane fade in show active" role="tabpanel">
+      <br><br><div class="container"><div class="row"></div></div>
+    </div>
+
+    <div id="Thriller" class="tab-pane fade" role="tabpanel">
+      <br><br><div class="container"><div class="row"></div></div>
+    </div>
+
+    <div id="Action" class="tab-pane fade" role="tabpanel">
+      <br><br><div class="container"><div class="row"></div></div>  
+    </div>
+
+    <div id="Romance" class="tab-pane fade" role="tabpanel">
+      <br><br><div class="container"><div class="row"></div></div>
+    </div>
+
+    <div id="Horror" class="tab-pane fade" role="tabpanel">
+      <br><br><div class="container"><div class="row"></div></div>
+    </div>
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <span>&copy; All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/jquery-3.2.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/books.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+html {
+  position: relative;
+  min-height: 100%;
+  
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+  background-color: #F7DC6F ;
+}
+
+.jumbotron{
+	margin-top: 3.5em !important;
+	padding-top: 13em;
+	background: url('../img/action.jpg') no-repeat right;
+	background-size: cover;
+}
+
+.navbar{
+	background-color: #CB4335  ;
+	box-shadow: 0 3px 25px 0 rgba(41, 128, 185,0.22)
+}
+
+.footer{
+ 	position: absolute;
+	bottom: 0;
+	left:  0;
+	width: 100%;
+	line-height: 40px; /* Vertically center the text there */
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 50px;
+	color: antiquewhite;
+	background-color: #CB4335  ;
+	font-size: 14px;
+	font-weight: normal;
+	box-shadow: inset 3px 5px 2px 3px rgba(47,56,68,0.22);
+}
+
+.card{
+	padding-top: 20px;
+}
+
+.nav-item>.active{
+	box-shadow: inset 1px 1px 5px 0px rgba(41,128,185,0.22);
+}
